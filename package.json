@@ -17,7 +17,13 @@
     "migration:run": "typeorm-ts-node-commonjs migration:run -d src/config/database.ts",
     "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/config/database.ts"
   },
-  "keywords": ["birthday", "notifications", "timezone", "typescript", "nodejs"],
+  "keywords": [
+    "birthday",
+    "notifications",
+    "timezone",
+    "typescript",
+    "nodejs"
+  ],
   "author": "Paolo",
   "license": "MIT",
   "devDependencies": {
