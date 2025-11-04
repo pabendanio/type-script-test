@@ -1,31 +1,34 @@
 # Use the official Node.js runtime as the base image
 FROM node:18-alpine
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (if available)
+# Copy package.json and lockfile
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install all dependencies (including dev)
+RUN npm ci
 
 # Copy the source code
 COPY . .
 
-# Build the TypeScript code
+# Build TypeScript
 RUN npm run build
 
-# Create a non-root user to run the application
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+# Remove dev dependencies for smaller final image
+RUN npm prune --production
 
-# Change ownership of the app directory to the nodejs user
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs \
+  && adduser -S nextjs -u 1001 -G nodejs
+
+# Adjust ownership
 RUN chown -R nextjs:nodejs /app
 USER nextjs
 
-# Expose the port the app runs on
+# Expose app port
 EXPOSE 3000
 
-# Define the command to run the application
+# Start application
 CMD ["npm", "start"]

@@ -34,7 +34,7 @@ A scalable, timezone-aware birthday notification system built with TypeScript, N
 
 - Node.js 18+
 - PostgreSQL 15+
-- Docker & Docker Compose (optional)
+- Docker & Docker Compose
 
 ## 🚀 Quick Start
 
@@ -52,12 +52,17 @@ A scalable, timezone-aware birthday notification system built with TypeScript, N
    # Edit .env and set your WEBHOOK_URL from hookbin.com
    ```
 
-3. **Start the application**:
+3. **Create docker network**:
    ```bash
-   docker-compose up -d
+   docker network create birthday_network
    ```
 
-4. **Check application health**:
+4. **Start the application**:
+   ```bash
+   docker-compose up -d --build
+   ```
+
+5. **Check application health**:
    ```bash
    curl http://localhost:3000/health
    ```
