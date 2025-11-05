@@ -26,7 +26,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV:-production}
       PORT: 3000
-      DB_HOST: ${DB_HOST:-postgres}
+      DB_HOST: postgres
       DB_PORT: ${DB_PORT:-5432}
       DB_USERNAME: ${DB_USERNAME:-postgresuser}
       DB_PASSWORD: ${DB_PASSWORD:-postgrespassword}
