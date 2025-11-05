@@ -169,8 +169,8 @@ Full list: [IANA Time Zone Database](https://www.iana.org/time-zones)
 | `PORT` | Server port | `3000` |
 | `DB_HOST` | PostgreSQL host | `localhost` |
 | `DB_PORT` | PostgreSQL port | `5432` |
-| `DB_USERNAME` | Database username | `postgres` |
-| `DB_PASSWORD` | Database password | `password` |
+| `DB_USERNAME` | Database username | `postgresuser` |
+| `DB_PASSWORD` | Database password | `postgrespassword` |
 | `DB_NAME` | Database name | `birthday_app` |
 | `WEBHOOK_URL` | Hookbin.com endpoint | Required |
 | `MAX_RETRIES` | Message retry attempts | `3` |
